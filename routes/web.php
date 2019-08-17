@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Route::get('/about', function () {
 //     return "This is the about page, sons.";
@@ -33,8 +33,18 @@ Route::get('/', function () {
 // })); // What this means is 'admin.home' is the same as 'admin/posts/example'
 
 // Route::get('/post/{id}', 'PostsController@index'); // when it goes to PostsController it will look for index method
+//
+// Route::resource('posts', 'PostsController');
+//
+// Route::get('/contact', 'PostsController@contact');
+// Route::get('/post/{id}', 'PostsController@show_post');
 
-Route::resource('posts', 'PostsController');
+/*
+|--------------------------------------------------------------------------
+| Inserting Data into our Posts Table
+|--------------------------------------------------------------------------
+*/
 
-Route::get('/contact', 'PostsController@contact');
-Route::get('/post/{id}', 'PostsController@show_post');
+Route::get('/insert', function(){
+  DB::insert('insert into posts(title, content) values(?, ?)', ['PHP with Laravel', 'Laravel is the best thing that has happened to PHP']);
+});

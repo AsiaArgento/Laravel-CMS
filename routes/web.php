@@ -35,3 +35,5 @@ Route::get('/', function () {
 // Route::get('/post/{id}', 'PostsController@index'); // when it goes to PostsController it will look for index method
 
 Route::resource('posts', 'PostsController');
+
+Route::get('/contact', 'PostsController@contact');

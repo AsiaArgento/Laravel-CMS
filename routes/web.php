@@ -116,3 +116,7 @@ Route::get('/', function () {
 //   $post = Post::find(2);
 //   $post->delete();
 // });
+
+Route::get('/softdelete', function(){
+  Post::find(3)->delete();
+});

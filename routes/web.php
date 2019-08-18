@@ -81,7 +81,12 @@ Route::get('/', function () {
 //   }
 // });
 
-Route::get('/find', function(){
-  $post = Post::find(2);
-  return $post->title;
+// Route::get('/find', function(){
+//   $post = Post::find(2);
+//   return $post->title;
+// });
+
+Route::get('/findwhere', function(){
+  $posts = Post::where('id', 2)->orderBy('id', 'desc')->take(1)->get(); // where id equals 2, and orderby, take 1 out of it and get it to me
+  return $posts;
 });

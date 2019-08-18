@@ -41,10 +41,19 @@
 
 /*
 |--------------------------------------------------------------------------
-| Inserting Data into our Posts Table
+| Inserting Data into our Posts Table, DB Raw SQL Queries
 |--------------------------------------------------------------------------
 */
 
-Route::get('/insert', function(){
-  DB::insert('insert into posts(title, content) values(?, ?)', ['PHP with Laravel', 'Laravel is the best thing that has happened to PHP']);
+// Route::get('/insert', function(){
+//   DB::insert('insert into posts(title, content) values(?, ?)', ['PHP with Laravel', 'Laravel is the best thing that has happened to PHP']);
+// });
+
+Route::get('/read', function(){
+  $results = DB::select('select * from posts where id = ?', [1]);
+
+  foreach($results as $post){
+    return $post->title;
+  }
+
 });

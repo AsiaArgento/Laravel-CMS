@@ -86,7 +86,13 @@ Route::get('/', function () {
 //   return $post->title;
 // });
 
-Route::get('/findwhere', function(){
-  $posts = Post::where('id', 2)->orderBy('id', 'desc')->take(1)->get(); // where id equals 2, and orderby, take 1 out of it and get it to me
-  return $posts;
+// Route::get('/findwhere', function(){
+//   $posts = Post::where('id', 2)->orderBy('id', 'desc')->take(1)->get(); // where id equals 2, and orderby, take 1 out of it and get it to me
+//   return $posts;
+// });
+
+Route::get('/findmore', function(){
+  // $posts = Post::findOrFail(1);
+  // return $posts;
+  $posts = Post::where('users_count', '<', 50)->firstOrFail();
 });

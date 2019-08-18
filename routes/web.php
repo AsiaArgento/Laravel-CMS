@@ -91,8 +91,15 @@ Route::get('/', function () {
 //   return $posts;
 // });
 
-Route::get('/findmore', function(){
-  // $posts = Post::findOrFail(1);
-  // return $posts;
-  $posts = Post::where('users_count', '<', 50)->firstOrFail();
+// Route::get('/findmore', function(){
+//   // $posts = Post::findOrFail(1);
+//   // return $posts;
+//   $posts = Post::where('users_count', '<', 50)->firstOrFail();
+// });
+
+Route::get('/basicinsert', function(){
+  $post = new Post;
+  $post->title = 'New Eloquent Title Insert';
+  $post->content = 'Wow, eloquent is really cool, look at this content';
+  $post->save();
 });

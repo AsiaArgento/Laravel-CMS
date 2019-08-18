@@ -16,4 +16,8 @@ class Post extends Model
       'title',
       'content'
     ];
+
+    public function user() {
+      return $this->belongsTo('App\User'); // I want to get the user that belongs to this post
+    }
 }

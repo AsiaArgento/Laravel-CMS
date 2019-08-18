@@ -28,6 +28,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /*
+     * Automatically going to return the user_id after going into the posts table
+     */
+    public function post(){
+      return $this->hasOne('App\Post');
+    }
+
     /**
      * The attributes that should be cast to native types.
      *

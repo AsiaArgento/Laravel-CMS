@@ -108,6 +108,11 @@ Route::get('/', function () {
 //   Post::create(['title'=>'the create title', 'content'=>'WOW im learning']);
 // });
 
-Route::get('/update', function(){
-  Post::where('id', 2)->where('is_admin', 0)->update(['title'=>'NEW PHP TITLE', 'content'=>'I love my instructor']);
-});
+// Route::get('/update', function(){
+//   Post::where('id', 2)->where('is_admin', 0)->update(['title'=>'NEW PHP TITLE', 'content'=>'I love my instructor']);
+// });
+
+// Route::get('/delete', function(){
+//   $post = Post::find(2);
+//   $post->delete();
+// });

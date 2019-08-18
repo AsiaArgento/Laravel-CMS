@@ -1,5 +1,5 @@
 <?php
-
+use App\Post;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,9 +11,9 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 // Route::get('/about', function () {
 //     return "This is the about page, sons.";
@@ -63,7 +63,25 @@
 //   return $updated;
 // });
 
-Route::get('/delete', function(){
-  $deleted = DB::delete('delete from posts where id = ?', [1]);
-  return $deleted;
+// Route::get('/delete', function(){
+//   $deleted = DB::delete('delete from posts where id = ?', [1]);
+//   return $deleted;
+// });
+
+/*
+|--------------------------------------------------------------------------
+| Object Relational Model-ORM
+|--------------------------------------------------------------------------
+*/
+
+// Route::get('/read', function(){
+//   $posts = Post::all();
+//   foreach($posts as $post) {
+//     return $post->title;
+//   }
+// });
+
+Route::get('/find', function(){
+  $post = Post::find(2);
+  return $post->title;
 });

@@ -97,9 +97,13 @@ Route::get('/', function () {
 //   $posts = Post::where('users_count', '<', 50)->firstOrFail();
 // });
 
-Route::get('/basicinsert', function(){
-  $post = new Post;
-  $post->title = 'New Eloquent Title Insert';
-  $post->content = 'Wow, eloquent is really cool, look at this content';
-  $post->save();
+// Route::get('/basicinsert', function(){
+//   $post = new Post;
+//   $post->title = 'New Eloquent Title Insert';
+//   $post->content = 'Wow, eloquent is really cool, look at this content';
+//   $post->save();
+// });
+
+Route::get('/create', function(){
+  Post::create(['title'=>'the create title', 'content'=>'WOW im learning']);
 });

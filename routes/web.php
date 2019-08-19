@@ -144,9 +144,18 @@ Route::get('/', function () {
 // });
 
 // One to Many Relationship *****************
-Route::get('/posts', function(){
-  $user = User::find(1);
-  foreach($user->posts as $post){
-    echo $post->title . "<br>";
+// Route::get('/posts', function(){
+//   $user = User::find(1);
+//   foreach($user->posts as $post){
+//     echo $post->title . "<br>";
+//   }
+// });
+
+// Many to Many Relationship
+Route::get('/user/{id}/role', function($id){
+  $user = User::find($id);
+
+  foreach($user->roles as $role){
+    return $role->name;
   }
 });
